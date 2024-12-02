@@ -41,7 +41,7 @@ export default function Main() {
                 </div>
                 <div className="container">
                     <form onSubmit={addPost} className="form" action="">
-                        <input className="formText" type="text" placeholder="Inserisci il titolo del Post" value={newTitle} />
+                        <input className="formText" type="text" onChange={(event) => setNewTitle(event.target.value)} placeholder="Inserisci il titolo del Post" value={newTitle} />
                         <input className="formBtn" type="submit" value={'INVIA'} />
                     </form>
                 </div>
