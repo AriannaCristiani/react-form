@@ -3,34 +3,39 @@ import posts from '../../posts.jsx'
 import Tags from '../Tags/Tags.jsx'
 import { useState } from "react"
 
-console.log(posts.published)
+//console.log(posts.published)
 
 
 export default function Main() {
 
     const publishedPosts = posts.filter((post) => post.published)
     const tags = []
-    const [newTitle, setNewTitle] = useState('Peonie')
+    const [title, setTitle] = useState('Peonie')
+    const [newPost, setNewPost] = useState(posts)
+
+
+    function addPost(event) {
+        event.preventDefault()
+
+        const newTitle = title.trim()
+
+        if (newTitle === '') return
+
+
+        console.log('stai aggiungendo un post')
+    }
 
     posts.forEach(post => {
 
         const postTags = post.tags
-        console.log(postTags)
+        //console.log(postTags)
 
         postTags.forEach((tag) => {
             if (!tags.includes(tag)) {
                 tags.push(tag)
             }
         })
-
     })
-
-    function addPost(event) {
-        event.preventDefault()
-        console.log('stai aggiungendo un post')
-
-
-    }
 
 
     return (
@@ -41,7 +46,7 @@ export default function Main() {
                 </div>
                 <div className="container">
                     <form onSubmit={addPost} className="form" action="">
-                        <input className="formText" type="text" onChange={(event) => setNewTitle(event.target.value)} placeholder="Inserisci il titolo del Post" value={newTitle} />
+                        <input className="formText" type="text" onChange={(event) => setTitle(event.target.value)} placeholder="Inserisci il titolo del Post" value={title} />
                         <input className="formBtn" type="submit" value={'INVIA'} />
                     </form>
                 </div>
