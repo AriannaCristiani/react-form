@@ -3,15 +3,13 @@ import posts from '../../posts.jsx'
 import Tags from '../Tags/Tags.jsx'
 import { useState } from "react"
 
-//console.log(posts.published)
-
 
 export default function Main() {
-
-    const publishedPosts = posts.filter((post) => post.published)
-    const tags = []
-    const [title, setTitle] = useState('Peonie')
+    const [title, setTitle] = useState('')
     const [newPost, setNewPost] = useState(posts)
+
+    const publishedPosts = newPost.filter((post) => post.published)
+    const tags = []
 
 
     function addPost(event) {
@@ -21,15 +19,22 @@ export default function Main() {
 
         if (newTitle === '') return
 
+        const addedPost = {
+            id: Date.now(),
+            title: newTitle,
+            image: undefined,
+            content: 'new post content',
+            tags: [],
+            published: true,
+        }
 
-        console.log('stai aggiungendo un post')
+        setNewPost(prevPosts => [...prevPosts, addedPost])
+        console.log('stai aggiungendo un nuovo post')
     }
 
-    posts.forEach(post => {
 
+    newPost.forEach(post => {
         const postTags = post.tags
-        //console.log(postTags)
-
         postTags.forEach((tag) => {
             if (!tags.includes(tag)) {
                 tags.push(tag)
@@ -46,7 +51,13 @@ export default function Main() {
                 </div>
                 <div className="container">
                     <form onSubmit={addPost} className="form" action="">
-                        <input className="formText" type="text" onChange={(event) => setTitle(event.target.value)} placeholder="Inserisci il titolo del Post" value={title} />
+                        <input
+                            className="formText"
+                            type="text"
+                            onChange={(event) => setTitle(event.target.value)}
+                            placeholder="Inserisci il titolo del Post"
+                            value={title}
+                        />
                         <input className="formBtn" type="submit" value={'INVIA'} />
                     </form>
                 </div>
