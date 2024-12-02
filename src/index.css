@@ -92,4 +92,22 @@ img {
   border-radius: 5px;
   padding: 10px 10px;
   color: rgb(59, 59, 59);
+  cursor: pointer;
+}
+
+.formBtn:hover {
+  background-color: rgba(116, 57, 57, 0.712);
+}
+
+.delete-btn {
+  border: none;
+  background-color: rgb(253, 148, 107);
+  border-radius: 5px;
+  padding: 10px 10px;
+  color: rgb(59, 59, 59);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: rgba(116, 57, 57, 0.616);
 }

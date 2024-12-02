@@ -3,14 +3,13 @@ import posts from '../../posts.jsx'
 import Tags from '../Tags/Tags.jsx'
 import { useState } from "react"
 
-
 export default function Main() {
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState('Peonie')
     const [newPost, setNewPost] = useState(posts)
 
+    // Ottieni solo i post pubblicati
     const publishedPosts = newPost.filter((post) => post.published)
     const tags = []
-
 
     function addPost(event) {
         event.preventDefault()
@@ -32,7 +31,12 @@ export default function Main() {
         console.log('stai aggiungendo un nuovo post')
     }
 
+    // Funzione per eliminare un post
+    function deletePost(postId) {
+        setNewPost(prevPosts => prevPosts.filter(post => post.id !== postId))
+    }
 
+    // Estrai i tags dai post
     newPost.forEach(post => {
         const postTags = post.tags
         postTags.forEach((tag) => {
@@ -41,7 +45,6 @@ export default function Main() {
             }
         })
     })
-
 
     return (
         <main>
@@ -66,6 +69,13 @@ export default function Main() {
                         {publishedPosts.map((post) => (
                             <div key={post.id} className="col">
                                 <Card post={post} />
+                                {/* Icona per eliminare il post */}
+                                <button
+                                    onClick={() => deletePost(post.id)}
+                                    className="delete-btn"
+                                >
+                                    ELIMINA
+                                </button>
                             </div>
                         ))}
                     </div>
