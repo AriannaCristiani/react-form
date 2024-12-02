@@ -31,6 +31,12 @@ export default function Main() {
                     <Tags tags={tags} />
                 </div>
                 <div className="container">
+                    <form className="form" action="">
+                        <input className="formText" type="text" placeholder="Inserisci il titolo del Post" />
+                        <input className="formBtn" type="submit" value={'INVIA'} />
+                    </form>
+                </div>
+                <div className="container">
                     <div className="row">
                         {publishedPosts.map((post) => (
                             <div key={post.id} className="col">

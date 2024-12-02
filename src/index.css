@@ -70,3 +70,26 @@ img {
 .error {
   opacity: 20%;
 }
+
+.form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 40px;
+  padding: 25px 0px;
+}
+
+.formText {
+  border: none;
+  background-color: rgb(255, 236, 223);
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.formBtn {
+  border: none;
+  background-color: rgb(253, 148, 107);
+  border-radius: 5px;
+  padding: 10px 10px;
+  color: rgb(59, 59, 59);
+}
