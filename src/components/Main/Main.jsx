@@ -69,10 +69,9 @@ export default function Main() {
                         {publishedPosts.map((post) => (
                             <div key={post.id} className="col">
                                 <Card post={post} />
-                                {/* Icona per eliminare il post */}
                                 <button
                                     onClick={() => deletePost(post.id)}
-                                    className="delete-btn"
+                                    className="deleteBtn"
                                 >
                                     ELIMINA
                                 </button>

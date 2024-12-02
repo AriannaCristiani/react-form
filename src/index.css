@@ -99,15 +99,15 @@ img {
   background-color: rgba(116, 57, 57, 0.712);
 }
 
-.delete-btn {
+.deleteBtn {
   border: none;
   background-color: rgb(253, 148, 107);
   border-radius: 5px;
-  padding: 10px 10px;
+  padding: 5px 5px;
   color: rgb(59, 59, 59);
   cursor: pointer;
 }
 
-.delete-btn:hover {
+.deleteBtn:hover {
   background-color: rgba(116, 57, 57, 0.616);
 }
